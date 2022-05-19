@@ -15,7 +15,10 @@ class ShareService {
       _host_address = InternetAddress(address);
     } else if (address is InternetAddress) {
       _host_address = address;
-    }
+    } else {
+      throw Exception(
+          'address of type ${address.runtimeType} is not supported\nmust be of type ${String} or ${InternetAddress}');
+    } // if the string doesn't represent a valid ip address then InternetAddress class throws that exception
   }
 
   void run() async {}
