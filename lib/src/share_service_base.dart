@@ -29,8 +29,8 @@ class ShareService {
     // Use any available host or container IP (usually `0.0.0.0`).
     final ip = InternetAddress.anyIPv4;
     var staticHandler = createStaticHandler('web');
-    final port = int.parse(Platform.environment['PORT'] ?? '8080');
-    final server = await serve(staticHandler, ip, port);
+    final port = _port;
+    final server = await serve(staticHandler, _host_address, port);
     print('Server listening on port ${server.port}');
   }
 }
