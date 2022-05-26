@@ -1,5 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
+
+import 'package:shelf/shelf_io.dart';
+import 'package:shelf_static/shelf_static.dart';
 
 class Awesome {
   bool get isAwesome => true;
@@ -9,6 +11,8 @@ class ShareService {
   late List<String> _files;
   InternetAddress _host_address = InternetAddress.anyIPv4;
   late int _port;
+  // Creates an object that will be used as a handle to use this library.
+  //
   ShareService(this._files, {dynamic address = "0.0.0.0", int port = 8080}) {
     _port = port;
     if (address is String) {
@@ -21,5 +25,12 @@ class ShareService {
     } // if the string doesn't represent a valid ip address then InternetAddress class throws that exception
   }
 
-  void run() async {}
+  void run() async {
+    // Use any available host or container IP (usually `0.0.0.0`).
+    final ip = InternetAddress.anyIPv4;
+    var staticHandler = createStaticHandler('web');
+    final port = int.parse(Platform.environment['PORT'] ?? '8080');
+    final server = await serve(staticHandler, ip, port);
+    print('Server listening on port ${server.port}');
+  }
 }
