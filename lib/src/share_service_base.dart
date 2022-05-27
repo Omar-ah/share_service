@@ -40,7 +40,9 @@ class ShareService {
 
   ///copies the shared files to a temp dir in order to make
   ///them accessable to handler that will serve them in the web server
-  void _copySharedFilesToTempDir() {}
+  void _copySharedFilesToTempDir() {
+    print("some work");
+  }
 
   ///delete the temporary directory in the tmp folder
   void _cleanUpTempDir() {}
