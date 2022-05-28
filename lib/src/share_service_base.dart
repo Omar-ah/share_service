@@ -33,4 +33,15 @@ class ShareService {
     final server = await serve(staticHandler, ip, port);
     print('Server listening on port ${server.port}');
   }
+
+  // TODO: implement these functions (copy, clean)
+  // note:  you can access  tmp folder      by [Directory.systemTemp]
+  //                        path separator  by [Platform.pathSeparator]
+
+  ///copies the shared files to a temp dir in order to make
+  ///them accessable to handler that will serve them in the web server
+  void _copySharedFilesToTempDir() {}
+
+  ///delete the temporary directory in the tmp folder
+  void _cleanUpTempDir() {}
 }
