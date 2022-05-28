@@ -1,3 +1,9 @@
+// TODO: add documentation to this file. as clearly and as concisely as you can manage it.
+
+// note: documentation should be preceded with three slashes (///) to be recognized by doc-tools
+// and vscode itself.
+// these comments (from this line upwards) will be deleted before merging into master. feel free to remove them whenever.
+
 import 'dart:io';
 
 import 'package:shelf/shelf_io.dart';
